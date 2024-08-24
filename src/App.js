@@ -39,7 +39,7 @@ export default function App() {
         setIsLoading(true)
         setError('')
 
-        const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`, { signal: controller.signal })
+        const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&s=${query}`, { signal: controller.signal })
 
         if (!res.ok) throw new Error('something went wrong with fetching movies list')
 
@@ -241,7 +241,7 @@ function MoviDetails({ selectedId, onClosemovie, KEY, onWatchedMovie, watched })
   useEffect(function () {
     setIsLoading(true)
     async function getMovieDetail() {
-      const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`)
+      const res = await fetch(`https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`)
       const data = await res.json()
       setMovie(data)
       setIsLoading(false)

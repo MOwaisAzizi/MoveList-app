@@ -405,7 +405,6 @@ body {
     gap: 2rem;
     justify-content: center;
     width: 100%;
-    border: solid 1px red;
   }
   .box {
     width: 99%;
@@ -421,7 +420,6 @@ body {
     border-radius: 0.7rem;
     background-color: var(--color-background-100);
     box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.2);
-    border: solid 1px blue;
   }
 
   .summary h2 {
