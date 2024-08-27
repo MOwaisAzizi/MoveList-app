@@ -3,7 +3,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 const containerStyle = {
-  display: "block",
+  display: "flex",
   alignItems: "center",
   gap: "16px",
 };
@@ -41,9 +41,7 @@ export default function StarRating({
 
   const textStyle = {
     lineHeight: "1",
-    marginTop: "5px",
     color,
-    textAlign: 'center',
     fontSize: `${size / 1.5}px`,
   };
 
