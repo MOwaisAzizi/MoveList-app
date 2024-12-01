@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import PropTypes from "prop-types";
 
@@ -31,6 +30,13 @@ export default function StarRating({
   defaultRating = 0,
   onSetsetMovieRating,
 }) {
+
+  const textStyle = {
+    lineHeight: "1",
+    color,
+    fontSize: `${size / 1.5}px`,
+  };
+
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(0);
 
@@ -38,12 +44,6 @@ export default function StarRating({
     setRating(rating);
     onSetsetMovieRating(rating);
   }
-
-  const textStyle = {
-    lineHeight: "1",
-    color,
-    fontSize: `${size / 1.5}px`,
-  };
 
   return (
     <div style={containerStyle} className={className}>

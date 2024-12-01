@@ -9,17 +9,15 @@ const average = (arr) =>
 
 export default function App() {
   const [query, setQuery] = useState("");
-
-  const { movies, isLoading, error } = useMovie(query, handleCloseMovie)
-
-  const KEY = "2df7b3f9"
   const [selectedId, setSelectedId] = useState(null)
-
+  const KEY = "2df7b3f9"
+  const { movies, isLoading, error } = useMovie(query, handleCloseMovie)
   const [watched, setWatched] = useLocalStorageState([], "watched")
 
   function handleSelectedMovie(id) {
-    setSelectedId(selectedId => selectedId == id ? null : id)
+    setSelectedId(selectedId => selectedId === id ? null : id)
   }
+
   function handleCloseMovie() {
     setSelectedId(null)
   }
@@ -32,7 +30,6 @@ export default function App() {
     setWatched(watched => [...watched, movie])
   }
 
-  //
 
   return (
     <>
@@ -93,15 +90,12 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
-
   const inputEl = useRef(null)
-
   useKey("Enter", function () {
     if (document.activeElement == inputEl.current) return
     inputEl.current.focus()
     setQuery('')
   })
-
 
   return (
     <input
@@ -194,7 +188,6 @@ function MoviDetails({ selectedId, onClosemovie, KEY, onWatchedMovie, watched })
     return function () {
       document.title = `usePopcorn`
     }
-
   }, [title])
 
 
@@ -208,7 +201,6 @@ function MoviDetails({ selectedId, onClosemovie, KEY, onWatchedMovie, watched })
     }
     getMovieDetail()
   }, [selectedId])
-
 
   useKey('Escape', onClosemovie)
 
@@ -291,7 +283,7 @@ function WatchedMovieSummary({ watched }) {
         </p>
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime.toFixed(1)} min</span>
         </p>
       </div>
     </div>
